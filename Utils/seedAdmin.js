@@ -15,14 +15,14 @@ const seedAdmin = async () => {
             console.log('Admin user seeded: admin@halal.com / password123');
         }
 
-        const wliExists = await User.findOne({ email: 'wli@halal.com' });
+        const wliExists = await User.findOne({ email: 'wali@halal.com' });
         if (!wliExists) {
             await new User({
-                email: 'wli@halal.com',
+                email: 'wali@halal.com',
                 password: 'abc123',
-                name: 'Wli Admin'
+                name: 'Wali Admin'
             }).save();
-            console.log('Admin user seeded: wli@halal.com / abc123');
+            console.log('Admin user seeded: wali@halal.com / abc123');
         } else {
             console.log('Admin users already exist');
         }
