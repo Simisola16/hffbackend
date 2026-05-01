@@ -7,15 +7,24 @@ const seedAdmin = async () => {
         await mongoose.connect(process.env.MONGO_URI);
         const adminExists = await User.findOne({ email: 'admin@halal.com' });
         if (!adminExists) {
-            const admin = new User({
+            await new User({
                 email: 'admin@halal.com',
                 password: 'password123',
                 name: 'Main Admin'
-            });
-            await admin.save();
+            }).save();
             console.log('Admin user seeded: admin@halal.com / password123');
+        }
+
+        const wliExists = await User.findOne({ email: 'wli@halal.com' });
+        if (!wliExists) {
+            await new User({
+                email: 'wli@halal.com',
+                password: 'abc123',
+                name: 'Wli Admin'
+            }).save();
+            console.log('Admin user seeded: wli@halal.com / abc123');
         } else {
-            console.log('Admin user already exists');
+            console.log('Admin users already exist');
         }
         process.exit();
     } catch (error) {
