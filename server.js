@@ -10,6 +10,8 @@ const heroRoutes = require('./Routes/heroRoutes');
 const trusteeRoutes = require('./Routes/trusteeRoutes');
 const eventRoutes = require('./Routes/eventRoutes');
 const newsRoutes = require('./Routes/newsRoutes');
+const grantRoutes = require('./Routes/grantApplicationRoutes');
+const grantInfoRoutes = require('./Routes/grantInfoRoutes');
 
 const app = express();
 
@@ -27,6 +29,8 @@ app.use('/api/hero', heroRoutes);
 app.use('/api/trustee', trusteeRoutes);
 app.use('/api/event', eventRoutes);
 app.use('/api/news', newsRoutes);
+app.use('/api/grant', grantRoutes);
+app.use('/api/grant-info', grantInfoRoutes);
 
 app.get('/', (req, res) => {
     res.send('HFF Backend API is running...');
